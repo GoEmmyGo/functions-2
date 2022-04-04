@@ -18,11 +18,13 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 // CODE HERE
-const evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
+const evenNumbers  = mixedNumbers.filter(elem => elem % 2 === 0)
+
+console.log(evenNumbers)
 
 
 
-////////// PROBLEM 2 //////////
+// ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
 const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
@@ -39,29 +41,35 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 // CODE HERE
-const postTaxPrices // = prices.map(/* Provide Your Callback Here );
+//const postTaxPrices // = prices.map(/* Provide Your Callback Here );
 
+const postTaxPrices = prices.map(taxAmount => taxAmount * 1.07)
 
+console.log(postTaxPrices)
 
-////////// PROBLEM 3 //////////
+//const mappedArr = numArray.map(num => num += 2)
+
+// // ////////// PROBLEM 3 //////////
 
 // Do not edit the code below.
 const populations = [8175133, 3792621, 2695598, 2100263];
 // Do not edit the code above.
 
-/*
-  Use the reduce method to calculate the sum of all the populations in the array.
-  The reduce function has a slightly different setup for its callback.
-  function(runningTotal, curElement, curIndex, wholeArray){} Function Form
-  (runningTotal, curElement, curIndex, wholeArray)=>{} Arrow Form
-*/
+// /*
+//   Use the reduce method to calculate the sum of all the populations in the array.
+//   The reduce function has a slightly different setup for its callback.
+//   function(runningTotal, curElement, curIndex, wholeArray){} Function Form
+//   (runningTotal, curElement, curIndex, wholeArray)=>{} Arrow Form
+// */
 
 // CODE HERE
-const totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
 
+const totalPopulation = populations.reduce((acc, sumPop) => acc + sumPop)
+//const totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
 
+console.log(totalPopulation)
 
-////////// PROBLEM 4 //////////
+// // ////////// PROBLEM 4 //////////
 
 // Do not edit the code below.
 const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulbabunny","CP":135},
@@ -82,11 +90,14 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 // CODE HERE
-const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+//const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+
+const myStrongest = monstersInYourPocket.filter(health => health.CP > 200)
+
+console.log(myStrongest)
 
 
-
-////////// PROBLEM 5 //////////
+// // ////////// PROBLEM 5 //////////
 
 // Do not edit code below.
 const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax":0.11},
@@ -99,11 +110,13 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-// CODE HERE
+// // // CODE HERE
 
+const orderTotalArray = orders.map(orderTotal => (orderTotal.price * orderTotal.tax) + orderTotal.price)
 
+console.log(orderTotalArray)
 
-////////// PROBLEM 6 //////////
+// // ////////// PROBLEM 6 //////////
 
 // Do not edit the code below.
 const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
@@ -121,24 +134,41 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 
 // CODE HERE
 
-/*
-const bobsTotal = purchases.reduce((acc, purchase) => {
-  if(purchasse.owner === "Bob"){
-    return acc + purchase.price
-  } else return acc
-}, 0)
+const bobsTotal = purchases.reduce((acc, purch) => {
+      if(purch.owner === "Bob"){
+        return acc + purch.price 
+      } else {
+        return acc
+      }        
+    }, 0)
 
 console.log(bobsTotal)
-*/
 
-/*
-const bobsTotal = purchases.filter(purch.owner === "Bob").reduce((acc, purchases) => {
-  return acc + purch.price
-}, 0)
 
-console.log(bobsTotal)
-*/
 
-const bobsTotal = purchases.filter(purch => purch.owner === "Bob").map(purch => purch.price).reduce((a, p) => a + p)
 
-console.log(bobsTotal)
+
+
+
+// // /*
+// // const bobsTotal = purchases.reduce((acc, purchase) => {
+// //   if(purchasse.owner === "Bob"){
+// //     return acc + purchase.price
+// //   } else return acc
+// // }, 0)
+
+// // console.log(bobsTotal)
+// // */
+
+// // /*
+// // const bobsTotal = purchases.filter(purch.owner === "Bob").reduce((acc, purchases) => {
+// //   return acc + purch.price
+// // }, 0)
+
+// // console.log(bobsTotal)
+// // */
+
+// // const bobsTotal = purchases.filter(purch => purch.owner === "Bob").map(purch => purch.price).reduce((a, p) => a + p)
+
+// // console.log(bobsTotal)
+
